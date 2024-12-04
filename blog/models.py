@@ -40,7 +40,7 @@ class Post(models.Model):
     
     texto = models.TextField(null=False)
     
-    imagem = models.FileField(upload_to='media/img/posts/', blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
+    imagem = models.FileField(upload_to='img/posts/', blank=True, null=True, validators=[FileExtensionValidator(allowed_extensions=['jpg', 'jpeg', 'png'])])
     
     autor = models.ForeignKey(Autor, on_delete=models.PROTECT, null=False, blank=False, related_name='posts')
     
