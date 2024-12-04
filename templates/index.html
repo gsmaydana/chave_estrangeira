@@ -24,7 +24,7 @@
         </a>
 
         <div class="row my-4">
-            <div class="col-md-10">
+            <div class="col">
                 <h2>Últimos posts</h2>
                 <ul class="list-group list-group-flush">
                     {% for post in posts %}
@@ -53,28 +53,7 @@
                     </a>
                 </div>
             </div>
-            <div class="col-md-2">
-                <div class="row">
-                    <h3>Tags</h3>
-                    {% for tag in tags %}
-                        <div class="tag">
-                            <a href="{% url 'posts' %}?tag={{ tag.nome }}" class="nav-link">
-                                    {{ tag.nome }} ({{ tag.num_posts }})
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-                <div class="row py-4">
-                    <h3>Autores</h3>
-                    {% for autor in autores %}
-                        <div class="tag">
-                            <a href="{% url 'posts' %}?autor={{autor.nome}}" class="nav-link">
-                                    {{ autor.nome }} ({{ autor.num_posts }})
-                            </a>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>    
+            
         </div>
     </div>
 {% endblock %}
