@@ -17,14 +17,14 @@ class Autor(models.Model):
         return f"{self.nome} ({self.email})"
     
     
-class Categoria(models.Model):
+class Tag(models.Model):
     
     nome = models.CharField(max_length=255, verbose_name='Nome', blank=False, null=False)
     
     class Meta:
         ordering = ['nome']
-        verbose_name = 'Categoria'
-        verbose_name_plural = 'Categorias'
+        verbose_name = 'Tag'
+        verbose_name_plural = 'Tags'
 
     def __str__(self):
         return self.nome
@@ -44,7 +44,7 @@ class Post(models.Model):
     
     autor = models.ForeignKey(Autor, on_delete=models.PROTECT, null=False, blank=False, related_name='posts')
     
-    categorias = models.ManyToManyField(Categoria, related_name='posts')
+    tags = models.ManyToManyField(Tag, related_name='posts')
 
     criado_em = models.DateTimeField(auto_now_add=True)
     

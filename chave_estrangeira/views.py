@@ -1,15 +1,15 @@
 from django.db.models import Count
 from django.shortcuts import render
 
-from blog.models import Categoria, Post
+from blog.models import Autor, Tag, Post
 
 
 def index(request):
     
-    posts = Post.objects.all().order_by('-criado_em')[:5]
     destaque = Post.objects.filter(is_destaque=True).first()
-    
-    categorias = Categoria.objects.annotate(num_posts=Count('posts'))
+    posts = Post.objects.filter(is_destaque=False).order_by('-criado_em')[:5]
+    tags = Tag.objects.annotate(num_posts=Count('posts'))
+    autores = Autor.objects.annotate(num_posts=Count('posts'))
 
     return render(request, 'index.html', locals())
     

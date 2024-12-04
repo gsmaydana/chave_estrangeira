@@ -22,7 +22,7 @@
                     </div>
             </div>
         </a>
-        
+
         <div class="row my-4">
             <div class="col-md-10">
                 <h2>Últimos posts</h2>
@@ -39,7 +39,7 @@
                                     <div class="titulo-post"><h5><strong>{{ post.titulo }}</strong><h5></div>
                                     <div class="texto-post"><em>{{ post.subtitulo }}</em></div>
                                     <div class="tags">
-                                        {% for tag in post.categorias.all %}
+                                        {% for tag in post.tags.all %}
                                             <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag"></i> {{ tag }}</span>
                                         {% endfor %}
                                 </div>
@@ -48,21 +48,34 @@
                     {% endfor %}
                 </ul>
                 <div class="row text-end">
-                    <a href="">
-                        <span class="badge rounded-pill text-bg-primary">Ver tudo</span>
+                    <a href="{% url 'posts' %}">
+                        <span class="badge rounded-pill text-bg-dark">Ver tudo</span>
                     </a>
                 </div>
             </div>
             <div class="col-md-2">
-                <h2>Tags</h2>
-                {% for categoria in categorias %}
-                    <div class="tag">
-                        {{ categoria.nome }} ({{ categoria.num_posts}})
-                    </div>
-                {% endfor %}
-            </div>
+                <div class="row">
+                    <h3>Tags</h3>
+                    {% for tag in tags %}
+                        <div class="tag">
+                            <a href="{% url 'posts' %}?tag={{ tag.nome }}" class="nav-link">
+                                    {{ tag.nome }} ({{ tag.num_posts }})
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="row py-4">
+                    <h3>Autores</h3>
+                    {% for autor in autores %}
+                        <div class="tag">
+                            <a href="{% url 'posts' %}?autor={{autor.nome}}" class="nav-link">
+                                    {{ autor.nome }} ({{ autor.num_posts }})
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>    
         </div>
-        
     </div>
 {% endblock %}
 

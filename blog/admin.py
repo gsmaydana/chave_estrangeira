@@ -5,7 +5,7 @@ from blog.models import *
 
 # Register your models here.
 admin.site.register(Autor)
-admin.site.register(Categoria)
+admin.site.register(Tag)
 
 
 @admin.register(Contato)

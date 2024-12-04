@@ -1,6 +1,6 @@
 from django.utils import timezone
 
-from blog.models import Categoria
+from blog.models import Tag
 
 
 def get_data_formatada(data):
@@ -12,8 +12,10 @@ def get_data_formatada(data):
 
 def chave_estrangeira_context_processor(request):
     
-    contexto = dict(
-        categorias = Categoria.objects.all()
-    )
+    # contexto = dict(
+    #     tags = Tag.objects.all()
+    # )
 
-    return contexto
+    # return contexto
+
+    return []

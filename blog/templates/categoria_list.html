@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-    <ul class="list-group">
-        {% for categoria in object_list %}
-            <li class="list-group-item">{{ categoria.nome }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}

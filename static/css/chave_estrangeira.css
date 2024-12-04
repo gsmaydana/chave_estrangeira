@@ -42,3 +42,25 @@ em, i {
   height: 100%; 
   object-fit: cover;
 }
+
+.page-link {
+  text-decoration: none;
+  color: var(--bs-secondary-color);
+  border: none;
+}
+
+.page-link:hover {
+  color: var(--bs-secondary-color);
+}
+
+.active>.page-link, .page-link.active {
+  z-index: 3;
+  color: var(--bs-secondary-border-subtle);
+  background-color: var(--bs-secondary-color);
+  border-color: var(--bs-secondary-border-subtle);
+}
+
+
+.pagination a:active {
+  box-shadow: 0 0 10px var(--bs-secondary-color);
+}
