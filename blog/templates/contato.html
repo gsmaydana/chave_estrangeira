@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container-fluid text-center">
+        <div class="text-start mx-auto" style="max-width: 600px;">
+            <h1 class="mb-4">Contato</h1>
+            <form method="post" class="text-start">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="mb-3">
+                        {{ field.label }}{{ field|add_class:"form-control" }}
+                    </div>
+                {% endfor %}
+                <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
