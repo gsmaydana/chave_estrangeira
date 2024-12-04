@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <div class="container">
+        <a href="{% url 'sobre' %}" class="nav-link">
+            <div class="row card mb-3 rounded">
+                <div class="row g-0">
+                    {% if not image %}
+                        <div class="col-md-2">
+                            <img src="{% static 'img/20230523_115920.jpg' %}" class="img-thumbnail" >
+                        </div>
+                        <div class="col-md-10">
+                    {% else %}
+                        <div class="col-md">
+                    {% endif %}
+                            <div class="card-body">
+                                <h1 class="card-title">Post Destaque </h5>
+                                <p class="card-text text-truncate">Texto do post destaque do blog .</p>
+                                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </a>
+        <div class="row">
+            <div class="col-md-10 bg-warning rounded" style="padding-right:1rem;">
+                <h1 class="ultimas-postagens ">Últimos posts</h1>
+                <div class="post">
+                    <div class="data-post">03/12/2024 10:24</div>
+                    <div class="titulo-post">Titulo Post</div>
+                    <div class="texto-post">Texto Post</div>
+                </div>
+                <div class="post">
+                    <div class="data-post">03/12/2024 10:24</div>
+                    <div class="titulo-post">Titulo Post</div>
+                    <div class="texto-post">Texto Post</div>
+                </div>
+                <div class="post">
+                    <div class="data-post">03/12/2024 10:24</div>
+                    <div class="titulo-post">Titulo Post</div>
+                    <div class="texto-post">Texto Post</div>
+                </div>
+                <div class="post">
+                    <div class="data-post">03/12/2024 10:24</div>
+                    <div class="titulo-post">Titulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo PostTitulo Post</div>
+                    <div class="texto-post">Texto Post</div>
+                </div>
+            </div>
+            <div class="col-md-2 bg-success rounded">
+                <div class="col-tag-posts">
+                    <h1>Tags</h1>
+                </div>
+                {% for categoria in categorias %}
+                    <div class="tag">
+                        {{ categoria.nome }} ()
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
