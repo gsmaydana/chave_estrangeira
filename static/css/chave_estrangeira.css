@@ -23,8 +23,8 @@ em, i {
 }
 
 .divider {
-  margin-top: 3rem !important;
-  margin-bottom: 3rem !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
 }
 
 .tags {
@@ -41,8 +41,4 @@ em, i {
   width: 100%; 
   height: 100%; 
   object-fit: cover;
-}
-
-.post {
-
 }
