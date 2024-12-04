@@ -5,14 +5,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{% block title %}Chave Estrangeira{% endblock %}</title>
+        
         {% block meta %}
         <!-- Adicione aqui meta tags específicas para a página -->
         {% endblock %}
+        
         {% block styles %}
             <link href="{% static 'vendor/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}" rel="stylesheet">
             <link href="{% static 'css/chave_estrangeira.css' %}" rel="stylesheet">
             <link href="{% static 'vendor/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf' %}" rel="stylesheet">
         {% endblock %}
+
+        {% block js %}
+            <script src="{% static 'vendor/jquery/jquery-3.7.1.min.js' %}"></script>
+            <script src="{% static 'vendor/jquerymask/jquery.mask.js' %}"></script>
+        {% endblock %}
+
     </head>
     <body class="bg-dark py-3">
         <div id="main" class="container bg-light rounded">
@@ -22,6 +30,24 @@
             {% endblock %}
 
             <main class="container">
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        setTimeout(function () {
+                            $('#message').fadeOut('slow')
+                        }, 1500);
+                    });
+                </script>
+
+                {% block messages %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div id="message" class="alert alert-topo alert-{{ message.tags }}" role='alert'>
+                                {{ message|capfirst }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endblock %}
+
                 {% block content %}
                 {% endblock %}
             </main>
@@ -34,6 +60,7 @@
 
         {% block scripts %}
             <script src="{% static 'vendor/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js' %}"></script>
+            <script src="{% static 'js/chave_estrangeira.mask.js' %}"></script>
         {% endblock %}
         
     </body>

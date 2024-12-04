@@ -21,5 +21,6 @@ from blog.views import *
 
 urlpatterns = [
     path('categorias/list/', CategoriaListView.as_view(), name='categoria_list'),
-    path('categorias/detail/<int:pk>', CategoriaDetailView.as_view(), name='categoria_detalhe')
+    path('categorias/detail/<int:pk>', CategoriaDetailView.as_view(), name='categoria_detalhe'),
+    path('contato/', ContatoFormView.as_view(), name="contato"),
 ]

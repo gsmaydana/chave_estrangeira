@@ -66,6 +66,9 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'chave_estrangeira.utils.chave_estrangeira_context_processor',
             ],
+            'builtins': [
+                'blog.templatetags.form_extras',
+            ],
         },
     },
 ]
