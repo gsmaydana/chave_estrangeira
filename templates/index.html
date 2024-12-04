@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="container">
-        <a href="{% url 'sobre' %}" class="nav-link">
+        <a href="{% url 'sobre' %}" class="nav-link border-bottom">
             <div class="row mb-4 rounded">
                 {% if destaque.imagem %}
                     <div class="col-md-2">
@@ -22,8 +22,6 @@
                     </div>
             </div>
         </a>
-
-        <div class="divider"><hr></hr></div>        
         
         <div class="row my-4">
             <div class="col-md-10">
