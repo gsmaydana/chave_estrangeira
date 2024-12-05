@@ -3,4 +3,4 @@ __pycache__/
 db.sqlite3
 media/
 staticfiles/
-chave_estrageira/settings.py
+chave_estrangeira/settings.py
