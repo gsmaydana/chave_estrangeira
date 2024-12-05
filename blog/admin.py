@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from blog.forms import ContatoForm
+from blog.forms import ContatoForm, PostForm
 from blog.models import *
 
 # Register your models here.
@@ -22,4 +22,6 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ("titulo", "autor", "criado_em", "atualizado_em")
     search_fields = ("titulo", "subtitulo", "autor")
     list_filter = ("criado_em", "autor")
+    
+    form = PostForm
     
