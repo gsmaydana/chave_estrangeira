@@ -7,7 +7,7 @@ from blog.models import Autor, Tag, Post
 def index(request):
     
     destaque = Post.objects.filter(is_destaque=True).first()
-    posts = Post.objects.filter(is_destaque=False).order_by('-criado_em')[:5]
+    posts = Post.objects.all().order_by('-criado_em')[:5]
     tags = Tag.objects.annotate(num_posts=Count('posts'))
     autores = Autor.objects.annotate(num_posts=Count('posts'))
 
