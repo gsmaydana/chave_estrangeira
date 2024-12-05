@@ -3,25 +3,27 @@
 
 {% block content %}
     <div class="container">
-        <a href="{% url 'post' destaque.pk %}" class="nav-link border-bottom">
-            <div class="row mb-4 rounded">
-                {% if destaque.imagem %}
-                    <div class="col-md-2">
-                        <img src="{{ destaque.imagem.url }}" class="img-thumbnail img-destaque">
-                    </div>
-                    <div class="col-md-10">
-                {% else %}
-                    <div class="col-md">
-                {% endif %}
-                        <div class="card-body">
-                            <h1 class="card-title">{{ destaque.titulo }}</h1>
-                            <p class="card-text"><em>{{ destaque.subtitulo }}</em></p>
-                            <p class="card-text"><i class="bi bi-pen"></i><small class="text-body-secondary"> {{ destaque.autor }}</small></p>
-                            <p class="card-text"><i class="bi bi-calendar"></i><small class="text-body-secondary"> {{ destaque.criado_em }}</small></p>
+        {% if destaque %}
+            <a href="{% url 'post' destaque.pk %}" class="nav-link border-bottom">
+                <div class="row mb-4 rounded">
+                    {% if destaque.imagem %}
+                        <div class="col-md-2">
+                            <img src="{{ destaque.imagem.url }}" class="img-thumbnail img-destaque">
                         </div>
-                    </div>
-            </div>
-        </a>
+                        <div class="col-md-10">
+                    {% else %}
+                        <div class="col-md">
+                    {% endif %}
+                            <div class="card-body">
+                                <h1 class="card-title">{{ destaque.titulo }}</h1>
+                                <p class="card-text"><em>{{ destaque.subtitulo }}</em></p>
+                                <p class="card-text"><i class="bi bi-pen"></i><small class="text-body-secondary"> {{ destaque.autor }}</small></p>
+                                <p class="card-text"><i class="bi bi-calendar"></i><small class="text-body-secondary"> {{ destaque.criado_em }}</small></p>
+                            </div>
+                        </div>
+                </div>
+            </a>
+        {% endif %}
 
         <div class="row my-4">
             <div class="col">
