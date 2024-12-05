@@ -21,5 +21,6 @@ from blog.views import *
 
 urlpatterns = [
     path('posts/', PostListView.as_view(), name='posts'),
+    path('posts/post/<int:pk>', PostDetailView.as_view(), name='post'),
     path('contato/', ContatoFormView.as_view(), name="contato"),
 ]

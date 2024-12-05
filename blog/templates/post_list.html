@@ -19,12 +19,17 @@
                                         <div class="autor-post"><i class="bi bi-pen"></i><small class="text-body-secondary"> {{ post.autor.nome }}</small></div>
                                     </div>
                                     <div class="col">
-                                        <div class="titulo-post"><h5><strong>{{ post.titulo }}</strong><h5></div>
-                                        <div class="texto-post"><em>{{ post.subtitulo }}</em></div>
+                                        <a href="{% url 'post' post.id %}" class="nav-link">
+                                            <div><h5 class="titulo-post"><strong>{{ post.titulo }}</strong><h5></div>
+                                            <div class="texto-post"><em>{{ post.subtitulo }}</em></div>
+                                        </a>
                                         <div class="tags">
                                             {% for tag in post.tags.all %}
-                                                <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag"></i> {{ tag }}</span>
+                                                <a href="?tag={{ tag.nome }}" class="nav-link tag">
+                                                    <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag"></i> {{ tag }}</span>
+                                                </a>
                                             {% endfor %}
+                                        </div>
                                     </div>
                                 </div>
                             </li>

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="px-4">
+    <div class="row mb-4 rounded ">
+        {% if post.imagem %}
+            <div class="col-md-3">
+                <img src="{{ post.imagem.url }}" class="img-thumbnail img-destaque">
+            </div>
+            <div class="col-md-9">
+        {% else %}
+            <div class="col-md">
+        {% endif %}
+                <div class="card-body">
+                    <h1 class="card-title">{{ post.titulo }}</h1>
+                    <p class="card-text"><h4><em>{{ post.subtitulo }}</em></h4></p>
+                    <p class="card-text"><i class="bi bi-pen"></i><small class="text-body-secondary"> {{ post.autor }}</small></p>
+                    <p class="card-text">
+                        <i class="bi bi-calendar"></i><small class="text-body-secondary"> Criado em: {{ post.criado_em }}</small>
+                        <br>
+                        <i class="bi bi-calendar"></i><small class="text-body-secondary"> Atualizado em: {{ post.atualizado_em }}</small>
+                    </p>
+                    <div class="data-post text-body-secondary">Tags:
+                        {% for tag in post.tags.all %}
+                            <a href="{% url 'posts' %}?tag={{ tag.nome }}" class="nav-link tag">
+                                <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag"></i> {{ tag }}</span>
+                            </a>
+                        {% endfor %}
+                        </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="row">
+        <p class="text-justify">
+            {{ post.texto|linebreaks }}
+        </p>
+    </div>
+
+    <div class="row text-end">
+        <a href="{% url 'posts' %}">
+            <span class="badge rounded-pill text-bg-dark">Voltar</span>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+

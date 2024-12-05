@@ -10,7 +10,7 @@ from blog.models import *
 class PostListView(ListView):
     
     model = Post
-    template_name = 'posts.html'
+    template_name = 'post_list.html'
     
     paginate_by = 10    
     
@@ -40,6 +40,12 @@ class PostListView(ListView):
         context['posts'] = self.get_queryset()
         
         return context
+    
+    
+class PostDetailView(DetailView):
+    
+    model = Post
+    template_name = 'post_detalhe.html'
         
     
 class ContatoFormView(FormView):

@@ -64,3 +64,11 @@ em, i {
 .pagination a:active {
   box-shadow: 0 0 10px var(--bs-secondary-color);
 }
+
+a.tag {
+  display: unset;
+}
+
+.text-justify {
+  text-align: justify;
+}
