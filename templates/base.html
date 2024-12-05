@@ -13,13 +13,19 @@
         {% block styles %}
             <link href="{% static 'vendor/bootstrap-5.3.3-dist/css/bootstrap.min.css' %}" rel="stylesheet">
             <link href="{% static 'vendor/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css' %}" rel="stylesheet">
+            <link href="{% static 'vendor/highlight/styles/default.min.css' %}" rel="stylesheet">
             <link href="{% static 'vendor/fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf' %}" rel="stylesheet">
             <link href="{% static 'css/chave_estrangeira.css' %}" rel="stylesheet">
+            
         {% endblock %}
 
         {% block js %}
             <script src="{% static 'vendor/jquery/jquery-3.7.1.min.js' %}"></script>
             <script src="{% static 'vendor/jquerymask/jquery.mask.js' %}"></script>
+            <script src="{% static 'vendor/highlight/highlight.min.js' %}"></script>
+
+            <script>hljs.highlightAll();</script>
+            
         {% endblock %}
 
     </head>
