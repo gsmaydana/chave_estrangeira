@@ -23,7 +23,7 @@
                     <div class="data-post text-body-secondary">Tags:
                         {% for tag in post.tags.all %}
                             <a href="{% url 'posts' %}?tag={{ tag.nome }}" class="nav-link tag">
-                                <span class="badge rounded-pill text-bg-secondary"><i class="bi bi-tag"></i> {{ tag }}</span>
+                                <span class="badge rounded-pill text-bg-secondary">#{{ tag }}</span>
                             </a>
                         {% endfor %}
                         </div>
