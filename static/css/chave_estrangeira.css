@@ -22,6 +22,10 @@ em, i {
   font-style: italic;
 }
 
+li {
+  list-style-position: inside;
+}
+
 #main {
   background-color: white;
 }
