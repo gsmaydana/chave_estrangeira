@@ -37,6 +37,16 @@
         </p>
     </div>
 
+    <ul class="nav justify-content-center">
+        {% if post_anterior %}
+            <a class="nav-link" href="{{ post_anterior.get_absolute_url }}"><span class="badge rounded-pill text-bg-dark">← Anterior</span></a>
+        {% endif %}
+        
+        {% if post_proximo %}
+            <a class="nav-link" href="{{ post_proximo.get_absolute_url }}"><span class="badge rounded-pill text-bg-dark">Próximo →</span></a>
+        {% endif %}
+    </ul>
+
     <div class="row text-end">
         <a href="{% url 'posts' %}">
             <span class="badge rounded-pill text-bg-dark">Ver tudo</span>

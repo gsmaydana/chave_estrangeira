@@ -46,6 +46,22 @@ class PostDetailView(DetailView):
     
     model = Post
     template_name = 'post_detalhe.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        
+        post = self.object
+        try:
+            context['post_anterior'] = post.get_previous_by_criado_em()
+        except Post.DoesNotExist:
+            context['post_anterior'] = None
+
+        try:
+            context['post_proximo'] = post.get_next_by_criado_em()
+        except Post.DoesNotExist:
+            context['post_proximo'] = None
+
+        return context
         
     
 class ContatoFormView(FormView):
