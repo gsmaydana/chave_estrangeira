@@ -76,3 +76,8 @@ a.tag {
 .text-justify {
   text-align: justify;
 }
+
+code {
+  color: #444;
+  background: #f3f3f3;
+}
